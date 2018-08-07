@@ -1,0 +1,278 @@
+Blockly.Blocks['glyphiconpanel'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Glyphicon Panel");
+    this.appendDummyInput()
+        .appendField("Icon")
+        .appendField(new Blockly.FieldTextInput("glyphicon-off"), "Icon")
+        .appendField("Icon Color")
+        .appendField(new Blockly.FieldColour("#cc0000"), "Color");
+    this.appendDummyInput()
+        .appendField("Caption")
+        .appendField(new Blockly.FieldTextInput("Power"), "Caption");
+    this.appendDummyInput()
+        .appendField("SubText")
+        .appendField(new Blockly.FieldTextInput("Lorem ipsum dolor sit amet.."), "SubText");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['video'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("video");
+    this.appendDummyInput()
+        .appendField("src :")
+        .appendField(new Blockly.FieldTextInput("https://www.youtube.com/embed/tgbNymZ7vqY"), "src");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['panel1'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Jumbotron")
+        .appendField(new Blockly.FieldTextInput("Lorem"), "caption")
+        .appendField("SubText")
+        .appendField(new Blockly.FieldTextInput("Ipsum"), "subtext");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['container2'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Container 2");
+    this.appendStatementInput("leftside")
+        .setCheck(null)
+        .appendField("Left");
+    this.appendStatementInput("rightside")
+        .setCheck(null)
+        .appendField("Right");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['webpage'] = {
+  init: function() {
+    this.appendValueInput("baseUrl")
+        .setCheck(null)
+        .appendField("BaseURL");
+    this.appendValueInput("title")
+        .setCheck(null)
+        .appendField("Title");
+    this.appendStatementInput("header")
+        .setCheck(null)
+        .appendField("Header");
+    this.appendStatementInput("body")
+        .setCheck(null)
+        .appendField("Body");
+    this.appendStatementInput("footer")
+        .setCheck(null)
+        .appendField("Footer");
+    this.setInputsInline(true);
+    this.setColour(290);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['menuitem'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Menu Item");
+    this.appendValueInput("caption")
+        .setCheck(null)
+        .appendField("Caption");
+    this.appendValueInput("link")
+        .setCheck(null)
+        .appendField("Link");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+
+ 
+Blockly.Blocks['button'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Button")
+        .appendField(new Blockly.FieldTextInput("Submit"), "caption");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['link'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Link")
+        .appendField(new Blockly.FieldTextInput("Home"), "caption");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['menu'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Menu")
+        .appendField(new Blockly.FieldDropdown([["NavBar","navbar"], ["SideBar Left","sidebarleft"], ["SideBar Right","sidebarright"]]), "menutype");
+    this.appendStatementInput("menuitems")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['container1'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Container 1");
+    this.appendStatementInput("center")
+        .setCheck(null)
+        .appendField("Center");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['image'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("image")
+        .appendField(new Blockly.FieldDropdown([["rounded","img-rounded"], ["circle","img-circle"], ["thumbnail","img-thumbnail"]]), "shape")
+        .appendField("path")
+        .appendField(new Blockly.FieldTextInput("img/"), "src");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("width")
+        .appendField(new Blockly.FieldTextInput(""), "width");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("height")
+        .appendField(new Blockly.FieldTextInput(""), "height");
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+
+Blockly.Blocks['goolemaps'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Google Maps");
+    this.appendValueInput("NAME")
+        .setCheck(null)
+        .appendField("longitude");
+    this.appendValueInput("NAME")
+        .setCheck(null)
+        .appendField("latitude");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['disqus'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Disqus");
+    this.appendValueInput("NAME")
+        .setCheck(null)
+        .appendField("disgus_Id");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['googleanalitics'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck(null)
+        .appendField("Google Analitics")
+        .appendField("");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(260);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['slider'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Slider");
+    this.appendValueInput("NAME")
+        .setCheck(null)
+        .appendField("Time");
+    this.appendStatementInput("NAME")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(180);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['simpletext'] = {
+  init: function() {
+    this.appendValueInput("text")
+        .setCheck(null)
+        .appendField("Text");
+    this.appendValueInput("font")
+        .setCheck(null)
+        .appendField("Font");
+    this.appendValueInput("size")
+        .setCheck(null)
+        .appendField("Size");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
