@@ -31,7 +31,5 @@ This Project is Open Source and is licensed under the Creative Commons 3.0.
 https://creativecommons.org/licenses/by-sa/3.0/
 
 
-## Acknowledgments
-
 
 
