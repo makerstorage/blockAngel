@@ -1,7 +1,6 @@
 # blockAngel
 
-blockAngel is a tool for young people that helps them to design web pages using Google Blockly. We have seen that 
-teachers are motivating their students to share what they do with the world. This is also great for the students to show their talent to their family when they back home.
+blockAngel is a tool developed to help young people design websites. We have seen that teachers are motivating their students to share what they do with the world. This is also great for the students to show their talent to their family when they back home. The world wide web is the great place to reach everybody but markup languages like HTML can be tricky for students to learn. We try to develop a new approach to this problem with Google Blockly. Block-based programming languages nowadays very popular among students. We hope students will like it and use it with a very low learning curve.
 
 ## Getting Started
 
