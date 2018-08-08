@@ -9,7 +9,7 @@ Just clone the repo and give it a Test.
 
 ## Built With
 
-* [Google Blcokly](https://developers.google.com/blockly/) - The web framework used
+* [Google Blockly](https://developers.google.com/blockly/) - The web framework used
 
 ## Contributing
 
