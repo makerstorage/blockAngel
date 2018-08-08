@@ -1,22 +1,23 @@
 # blockAnatomy
 
 
-Blocks are basically nothing else than js code. There are two basic functions. The first one is the function that definits the parameters and the view in the UI. The second function generates the code to be used on the HTML page. The example of these two functions is shown below.
+Blocks are basically nothing else than js code. There are two basic functions. The first one is the function that defines the parameters and the view in the UI. The second function generates the code to be used on the HTML page. The example of these two functions is shown below.
 
 ![Block FUnctions](blockfunctions.png)
 
 
 ### Parametric Fields
 
-Parametric fields are the most flexable part of the blocks. It let the user to change the text, color, or the look of the block. For example the button block has a caption parameter field so that the user can edit it from the UI. Please think about the other users that may want to change something in your block. Ofcourse the number of the parameter fields can not be so much. We can not let the user to change every part of the block. Please consider not to use parametric fields more than 3 or max 4. This may be end with a very complicated, hard to use blocks. You can find in the below **How to develop a block for blockAngel** part for how to make a field parametric.
+Parametric fields are the most flexible part of the blocks. It let the user change the text, color, or the look of the block. For example, the button block has a caption parameter field so that the user can edit it from the UI. Please think about the other users that may want to change something in your block. Of course, the number of the parameter fields cannot be so much. We can not let the user change every part of the block. Please consider not to use parametric fields more than 3 or max 4. This may end with a very complicated, hard to use blocks. You can find in the below **How to develop a block for blockAngel ** part for how to make a field parametric.
 
 
 ## How to develop a block for blockAngel
 
-blockAngel can be usefull tool unless have lots of reusable blocks. So we need your support for creating new blocks. Please think for others and develop a block that many people need it to use on their web page. Let's do it with an example. Sopose that we want to build an call to action block. We will follow the below steps:
+blockAngel can be useful tool unless having lots of reusable blocks. So we need your support for creating new blocks. Please think for others and develop a block that many people need it to use on their web page. Let's do it with an example. Suppose that we want to build a **call to action block**. We will follow the below steps:
 
 1- Design a HTML page with its CSS (and JS). 
-We are here talking about one html page with inline CSS inside <style> tag. This is your design that you want to make it blockAngel block. Here is the HTML code.
+
+We are here talking about one HTML page with inline CSS inside <style> tag. This is the design that you want to make it blockAngel block. Here is the HTML code.
 
 ```html
 <!DOCTYPE html>
