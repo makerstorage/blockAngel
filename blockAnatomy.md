@@ -15,7 +15,7 @@ Parametric fields are the most flexible part of the blocks. It let the user chan
 
 blockAngel can be useful tool unless having lots of reusable blocks. So we need your support for creating new blocks. Please think for others and develop a block that many people need it to use on their web page. Let's do it with an example. Suppose that we want to build a **call to action block**. We will follow the below steps:
 
-## 1- Design a HTML page with its CSS (and JS). 
+### 1- Design a HTML page with its CSS (and JS). 
 
 We are here talking about one HTML page with inline CSS inside <style> tag. This is the design that you want to make it blockAngel block. Here is the HTML code.
 
@@ -101,7 +101,7 @@ We are here talking about one HTML page with inline CSS inside <style> tag. This
 
 Open it in your browser and be sure that it is the final design. We will only take the style part and the below div section up to &lt;/body&gt; tag.
 
-## 2- Decide the parametric fields. 
+### 2- Decide the parametric fields. 
 
 The parts that you will give the flexibility to be changed from the UI. Give them a variable name.
 
@@ -112,7 +112,7 @@ The parts that you will give the flexibility to be changed from the UI. Give the
 - The button caption : button_caption
 - Button link for call to action : button_link
 
-## 3- Change the text you want to make parametric with the name inside two curly brackets.
+### 3- Change the text you want to make parametric with the name inside two curly brackets.
 
 &lt;h1&gt;Angel Blocks&lt;/h1&gt; will be &lt;h1&gt;{{h1_caption}}&lt;/h1&gt;
 
@@ -174,7 +174,7 @@ and the overall code will be:
 
 ```
 
-## 4- Design your block with block factory
+### 4- Design your block with block factory
 
 The block factory is a great tool designed by Google engineers. Now we will use this tool to design our block's user interface.
 Before using block factory please watch [this video](https://www.youtube.com/watch?time_continue=2&v=s2_xaEvcVI0) on how to use it. It is just 13 minutes :) 
