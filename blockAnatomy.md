@@ -8,7 +8,7 @@ Blocks are basically nothing else than js code. There are two basic functions. T
 
 ### Parametric Fields
 
-Parametric fields are the most flexible part of the blocks. It let the user change the text, color, or the look of the block. For example, the button block has a caption parameter field so that the user can edit it from the UI. Please think about the other users that may want to change something in your block. Of course, the number of the parameter fields cannot be so much. We can not let the user change every part of the block. Please consider not to use parametric fields more than 3 or max 4. This may end with a very complicated, hard to use blocks. You can find in the below **How to develop a block for blockAngel ** part for how to make a field parametric.
+Parametric fields are the most flexible part of the blocks. It let the user change the text, color, or the look of the block. For example, the button block has a caption parameter field so that the user can edit it from the UI. Please think about the other users that may want to change something in your block. Of course, the number of the parameter fields cannot be so much. We can not let the user change every part of the block. Please consider not to use parametric fields more than 3 or max 4. This may end with a very complicated, hard to use blocks. You can find in the below **How to develop a block for blockAngel** part for how to make a field parametric.
 
 
 ## How to develop a block for blockAngel
@@ -107,14 +107,14 @@ The parts that you will give the flexibility to be changed from the UI. Give the
 
 **Parametric parts:**
 
-- <h1>Angel Blocks</h1> : h1_caption
-- <p class="text-h3"> text </p> : paragraph_content
+- &lt;h1&gt;Angel Blocks&lt;/h1&gt; : h1_caption
+- &lt;p class="text-h3"&gt; text &lt;/p&gt; : paragraph_content
 - The button caption : button_caption
 - Button link for call to action : button_link
 
 ##3- Change the text you want to make parametric with the name inside two curly brackets.
 
-<h1>Angel Blocks</h1> will be <h1>{{h1_caption}}</h1>
+&lt;h1&gt;Angel Blocks&lt;/h1&gt; will be &lt;h1&gt;{{h1_caption}}&lt;/h1&gt;
 
 and the overall code will be:
 
