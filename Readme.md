@@ -14,6 +14,7 @@ Just clone the repo and give it a Test.
 ## Contributing
 
 It is important to help us on developing new blocks. 
+Please read the [Anatomy of a Block](blockAnatomy.md)
 
 ## Version
 
@@ -28,6 +29,7 @@ Early Beta
 This Project is Open Source and is licensed under the Creative Commons 3.0.
 
 https://creativecommons.org/licenses/by-sa/3.0/
+
 
 
 
