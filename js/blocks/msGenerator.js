@@ -42,6 +42,16 @@ Blockly.JavaScript['video'] = function(block) {
   return rendered;
 };
 
+
+
+
+
+
+
+
+
+
+
 Blockly.JavaScript['panel1'] = function(block) {
   var text_caption = block.getFieldValue('caption');
   var text_subtext = block.getFieldValue('subtext');
@@ -122,6 +132,7 @@ Blockly.JavaScript['button'] = function(block) {
   var text_caption = block.getFieldValue('caption');
 
   var template = ' <button class="btn btn-danger navbar-btn">{{ text_caption }}</button>';
+  
   var myJson = '{"text_caption": "'+text_caption+'"}';
 
   Mustache.parse(template);   // optional, speeds up future uses

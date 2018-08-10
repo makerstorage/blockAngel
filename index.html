@@ -21,6 +21,9 @@
   <script src="js/blocks/msBlocks.js"></script>
   <script src="js/blocks/msGenerator.js"></script>
   <script src="js/blocks/msContainer.js"></script>
+
+  <script src="js/blocks/msCall_to_action1.js"></script>
+
   
   <script src="js/msg/en.js"></script>
   <style>
@@ -67,7 +70,7 @@
   </tr>
   <tr>
     <td id="blocklyArea"></td>
-    <td id="codeArea"><div style="white-space: pre-wrap" id="codeBox"></div></td> 
+    <td id="codeArea"><div style="height: 300px;white-space: pre-wrap;overflow-y: scroll" id="codeBox"></div></td> 
  
 
   </tr>
@@ -102,6 +105,13 @@
 
 <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
   
+    <category name="Call to Action">
+    <block type="block_angel_call_to_action_1">
+      <field name="h1_caption">Angel Blocks</field>
+      <field name="paragraph_content">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</field>
+      <field name="button_link">https://www.google.com</field>
+    </block>
+  </category>
   <category name="Basic">
     <block type="link"></block>
     <block type="button"></block>
@@ -236,11 +246,27 @@
      
 
     function loadJson(event) {
+
       
-      var code = Blockly.JavaScript.workspaceToCode(MakerStorageWorkspace);
+      
+      var rawText = Blockly.JavaScript.workspaceToCode(MakerStorageWorkspace);
+
+      console.log(rawText);
+       
+      var inComming = rawText.split('***');
+
+      var code = inComming[0];
+      
+      var style = inComming[1];
+
 
       document.getElementById("target").innerHTML = code;
 
+
+    //  var sheet = document.createElement('style')
+    //  sheet.innerHTML = style;
+    //  document.body.appendChild(sheet);
+     
     //  var scriptCode = document.getElementById("target").getElementsByTagName("script")[0].innerHTML
 
 
