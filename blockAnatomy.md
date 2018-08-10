@@ -122,15 +122,15 @@ When you open the block factory you will start with a blank UI like the picture 
 ![Blank block Picture](Blank_block_Picture.png)
 
 Start with giving the block name. Please read the naming Convention section of this document before.
-Lets give this block the name "block-angel-call-to-action-1". Write it at the top.
+Let's give this block the name "block-angel-call-to-action-1". Write it at the top.
 From the inputs section drag a dummy input and put it in the input section. Then from the fields section grap a text field and put it in the dummy input. Write "Call to Action 1" as the text. This will be the caption of our block.
-From the no connection dropdown select top+botton connections. Now you have something like the below picture.
+From the no connection drop-down select top+botton connections. Now you have something like the below picture.
 
 ![Picture2](Picture2.png)
 
-Now it is time to set the color of our block. Colours are used to visually group the blocks into categories. Blockly uses numbers between 0-360, defining the block's hue in the hue-saturation-value HSV colour model. For our call to action category color is Hue 0. In the conventions section you can find the colors for categories. If you do not find any title that fit to your block you can set your own color.
+Now it is time to set the color of our block. Colors are used to visually group the blocks into categories. Blockly uses numbers between 0-360, defining the block's hue in the hue-saturation-value HSV color model. For our call to action category color is Hue 0. In the conventions section, you can find the colors for categories. If you do not find any title that fit your block you can set your own color.
 
-Now we can define the parametric fields. Please add four more dummy inputs with one text field and one text input. These are caption, subText, button caption and button link. Give them aproprate names. I also add the default values same with the html template. See the below picture it is easy.
+Now we can define the parametric fields. Please add four more dummy inputs with one text field and one text input. These are caption, subText, button caption and button link. Give them appropriate names. I also add the default values same with the HTML template. See the below picture it is easy.
 
 ![Picture3](Picture3.png)
 
@@ -176,9 +176,9 @@ Blockly.JavaScript['block_angel_call_to_action_1'] = function(block) {
 
 ```
 
-The code block at the top is the function that defines the block in the UI. The second one is the generator. We need to modify the generator inorder to gnerate html code from this block.
+The code block at the top is the function that defines the block in the UI. The second one is the generator. We need to modify the generator in order to generate HTML code from this block.
 
-After the modification it will be like below.
+After the modification code generator will be like below.
 
 
 ```javascript
@@ -218,7 +218,7 @@ Blockly.JavaScript['block_angel_call_to_action_1'] = function(block) {
 
 ```
 
-As you can see we get the parameters from UI and insert it inside the html. We are returning this HTML code to the system inorder to display.
+As you can see we get the parameters from UI and insert it into the HTML. We are returning this HTML code to the system in order to display.
 
 
 ## Naming Convention
@@ -233,4 +233,4 @@ Starts with lowercase ms prefix followed by the block name ex: msCall_to_action1
 
 ### Colors
 
-Call to action : Hue 0
+Call to action: Hue 0
