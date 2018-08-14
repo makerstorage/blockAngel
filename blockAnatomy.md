@@ -226,6 +226,7 @@ As you can see we get the parameters from UI and insert it into the HTML. We are
 ### Block Names
 
 block names must start with "block-angel-" prefix. ex: block-angel-simple-panel
+If it is a css block it must be like :block-angel-css ex: block-angel-css-color
 
 ### Block Javascript file name
 

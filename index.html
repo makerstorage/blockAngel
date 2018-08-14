@@ -118,17 +118,17 @@
     </statement>
   </block>
     
-    <block type="block_angel_baseframe"></block>
-    
-    <block type="title">
-      <field name="title">New Page Title</field>
-    </block>
+  
   </category>
+
   <category name="Style">
     <block type="block_angel_style"></block>
     <block type="block_angel_css_class"></block>
     <block type="block_angel_genericstyle"></block>
-     <block type="block_angel_class"></block>
+    <block type="block_angel_class"></block>
+    <block type="block_angel_css_text_align"></block>
+    <block type="block_angel_css_color"></block>
+    
     
     
   </category>
@@ -141,6 +141,7 @@
     </block>
   </category>
   <category name="Basic">
+    <block type="block_angel_paragraph"></block>
     <block type="block_angel_div_with_css"></block>
     <block type="link"></block>
     <block type="button"></block>
@@ -278,7 +279,7 @@
 
       
       
-      var rawText = Blockly.JavaScript.workspaceToCode(MakerStorageWorkspace);
+      var rawText = MsHtmlGenerator.workspaceToCode(MakerStorageWorkspace);
 
       console.log(rawText);
        

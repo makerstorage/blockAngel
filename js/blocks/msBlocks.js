@@ -51,7 +51,7 @@ Blockly.Blocks['block_angel_style'] = {
 Blockly.Blocks['block_angel_css_class'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("css")
+        .appendField("selector")
         .appendField(new Blockly.FieldTextInput("className"), "CLASSNAME");
     this.appendStatementInput("NAME")
         .setCheck(null);
@@ -90,8 +90,47 @@ Blockly.Blocks['block_angel_class'] = {
   }
 };
 
+Blockly.Blocks['block_angel_css_text_align'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("text-align : ")
+        .appendField(new Blockly.FieldDropdown([["left","left"], ["right","right"], ["center","center"], ["justify","justify"], ["initial","initial"], ["inherit","inherit"]]), "NAME");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(105);
+ this.setTooltip("");
+ this.setHelpUrl("https://www.w3schools.com/cssref/pr_text_text-align.asp");
+  }
+};
+
+Blockly.Blocks['block_angel_css_color'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("color:")
+        .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(105);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
 
 //style son
+
+Blockly.Blocks['block_angel_paragraph'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck(null)
+        .appendField("paragraph:")
+        .appendField(new Blockly.FieldTextInput("This is Sample Text"), "text");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
 
 Blockly.Blocks['block_angel_div_with_css'] = {
   init: function() {

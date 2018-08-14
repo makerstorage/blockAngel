@@ -1,6 +1,25 @@
-Blockly.JavaScript['block_angel_baseframe'] = function(block) {
-  var statements_head = Blockly.JavaScript.statementToCode(block, 'head');
-  var statements_body = Blockly.JavaScript.statementToCode(block, 'body');
+
+var MsHtmlGenerator = new Blockly.Generator('HTML');
+
+MsHtmlGenerator.init = function(workspace) {};
+MsHtmlGenerator.finish = function(code) {return code;};
+
+MsHtmlGenerator.scrub_ = function(block, code) {
+  var nextBlock = block.nextConnection && block.nextConnection.targetBlock();
+  var nextCode = MsHtmlGenerator.blockToCode(nextBlock);
+  return code + nextCode;
+};
+
+
+
+
+
+
+
+
+MsHtmlGenerator['block_angel_baseframe'] = function(block) {
+  var statements_head = MsHtmlGenerator.statementToCode(block, 'head');
+  var statements_body = MsHtmlGenerator.statementToCode(block, 'body');
   var code = '<!DOCTYPE HTML>\n<html>\n<head>\n  <meta charset="utf-8">\n'
     + statements_head
     + "</head>\n\n<body>\n"
@@ -17,7 +36,7 @@ Blockly.JavaScript['block_angel_baseframe'] = function(block) {
 
 
 
-Blockly.JavaScript['title'] = function(block) {
+MsHtmlGenerator['title'] = function(block) {
   var text_title = block.getFieldValue('title');
   
   var code = '<title>' + text_title.trim() + '</title>\n';
@@ -26,47 +45,71 @@ Blockly.JavaScript['title'] = function(block) {
 
 //style
 
-Blockly.JavaScript['block_angel_style'] = function(block) {
-  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
+MsHtmlGenerator['block_angel_style'] = function(block) {
+  var statements_name = MsHtmlGenerator.statementToCode(block, 'NAME');
   // TODO: Assemble JavaScript into code variable.
   var code = '<style>' + statements_name.trim() + '</style>';
   return code;
 };
 
 
-Blockly.JavaScript['block_angel_css_class'] = function(block) {
+MsHtmlGenerator['block_angel_css_class'] = function(block) {
   var text_classname = block.getFieldValue('CLASSNAME');
-  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
+  var statements_name = MsHtmlGenerator.statementToCode(block, 'NAME');
   // TODO: Assemble JavaScript into code variable.
    var code = text_classname+'{\n' + statements_name.trim() + '\n}';
   return code;
 };
 
 
-Blockly.JavaScript['block_angel_genericstyle'] = function(block) {
+MsHtmlGenerator['block_angel_genericstyle'] = function(block) {
   var text_property = block.getFieldValue('property');
   var text_value = block.getFieldValue('value');
   var code = text_property + ': ' + text_value + ';';
   return code;
 };
 
-Blockly.JavaScript['block_angel_class'] = function(block) {
+MsHtmlGenerator['block_angel_class'] = function(block) {
   var text_name = block.getFieldValue('NAME');
-  var value_inputclassname = Blockly.JavaScript.valueToCode(block, 'inputClassName', Blockly.JavaScript.ORDER_ATOMIC);
+  var value_inputclassname = MsHtmlGenerator.valueToCode(block, 'inputClassName', MsHtmlGenerator.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = text_name+' '+value_inputclassname;
   // TODO: Change ORDER_NONE to the correct strength.
-  return [code, Blockly.JavaScript.ORDER_NONE];
+  return [code, MsHtmlGenerator.ORDER_NONE];
+};
+
+
+MsHtmlGenerator['block_angel_css_text_align'] = function(block) {
+  var dropdown_name = block.getFieldValue('NAME');
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'text-align:'+dropdown_name+';\n';
+  return code;
+};
+
+
+MsHtmlGenerator['block_angel_css_color'] = function(block) {
+  var colour_name = block.getFieldValue('NAME');
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'color:'+colour_name+';\n';
+  return code;
 };
 
 //style son
 
 
-Blockly.JavaScript['block_angel_div_with_css'] = function(block) {
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  var statements_content = Blockly.JavaScript.statementToCode(block, 'content');
+MsHtmlGenerator['block_angel_paragraph'] = function(block) {
+  var text_text = block.getFieldValue('text');
+  var value_name = MsHtmlGenerator.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = '<div' + value_name + '>\n' + statements_content + '</div>\n';
+  var code = '<p class="' + value_name + '">' + text_text + '</p>\n';
+  return code;
+};
+
+MsHtmlGenerator['block_angel_div_with_css'] = function(block) {
+  var value_name = MsHtmlGenerator.valueToCode(block, 'NAME', MsHtmlGenerator.ORDER_ATOMIC);
+  var statements_content = MsHtmlGenerator.statementToCode(block, 'content');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '<div class="' + value_name + '">\n' + statements_content + '</div>\n';
   return code;
 };
 
@@ -74,7 +117,7 @@ Blockly.JavaScript['block_angel_div_with_css'] = function(block) {
 
 
 
-Blockly.JavaScript['glyphiconpanel'] = function(block) {
+MsHtmlGenerator['glyphiconpanel'] = function(block) {
 
   var text_icon = block.getFieldValue('Icon');
   var colour_color = block.getFieldValue('Color');
@@ -101,7 +144,7 @@ Blockly.JavaScript['glyphiconpanel'] = function(block) {
 };
 
 
-Blockly.JavaScript['video'] = function(block) {
+MsHtmlGenerator['video'] = function(block) {
   var text_src = block.getFieldValue('src');
   // TODO: Assemble JavaScript into code variable.
    var template =`
@@ -128,7 +171,7 @@ Blockly.JavaScript['video'] = function(block) {
 
 
 
-Blockly.JavaScript['panel1'] = function(block) {
+MsHtmlGenerator['panel1'] = function(block) {
   var text_caption = block.getFieldValue('caption');
   var text_subtext = block.getFieldValue('subtext');
   // TODO: Assemble JavaScript into code variable.
@@ -155,20 +198,20 @@ Blockly.JavaScript['panel1'] = function(block) {
   return rendered;
 };
 
-Blockly.JavaScript['container2'] = function(block) {
-  var statements_leftside = Blockly.JavaScript.statementToCode(block, 'leftside');
-  var statements_rightside = Blockly.JavaScript.statementToCode(block, 'rightside');
+MsHtmlGenerator['container2'] = function(block) {
+  var statements_leftside = MsHtmlGenerator.statementToCode(block, 'leftside');
+  var statements_rightside = MsHtmlGenerator.statementToCode(block, 'rightside');
   // TODO: Assemble JavaScript into code variable.
   var code = 'container2\n'+statements_leftside+'\n'+statements_rightside+'\n';
   return code;
 };
 
-Blockly.JavaScript['webpage'] = function(block) {
-  var value_baseurl = Blockly.JavaScript.valueToCode(block, 'baseUrl', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_title = Blockly.JavaScript.valueToCode(block, 'title', Blockly.JavaScript.ORDER_ATOMIC);
-  var statements_header = Blockly.JavaScript.statementToCode(block, 'header');
-  var statements_body = Blockly.JavaScript.statementToCode(block, 'body');
-  var statements_footer = Blockly.JavaScript.statementToCode(block, 'footer');
+MsHtmlGenerator['webpage'] = function(block) {
+  var value_baseurl = MsHtmlGenerator.valueToCode(block, 'baseUrl', MsHtmlGenerator.ORDER_ATOMIC);
+  var value_title = MsHtmlGenerator.valueToCode(block, 'title', MsHtmlGenerator.ORDER_ATOMIC);
+  var statements_header = MsHtmlGenerator.statementToCode(block, 'header');
+  var statements_body = MsHtmlGenerator.statementToCode(block, 'body');
+  var statements_footer = MsHtmlGenerator.statementToCode(block, 'footer');
   // TODO: Assemble JavaScript into code variable.
   var code = 
   '{\n'+
@@ -185,9 +228,9 @@ Blockly.JavaScript['webpage'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['menuitem'] = function(block) {
-  var value_caption = Blockly.JavaScript.valueToCode(block, 'caption', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_link = Blockly.JavaScript.valueToCode(block, 'link', Blockly.JavaScript.ORDER_ATOMIC);
+MsHtmlGenerator['menuitem'] = function(block) {
+  var value_caption = MsHtmlGenerator.valueToCode(block, 'caption', MsHtmlGenerator.ORDER_ATOMIC);
+  var value_link = MsHtmlGenerator.valueToCode(block, 'link', MsHtmlGenerator.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
 
   
@@ -204,7 +247,7 @@ Blockly.JavaScript['menuitem'] = function(block) {
   return rendered;
 };
 
-Blockly.JavaScript['button'] = function(block) {
+MsHtmlGenerator['button'] = function(block) {
   var text_caption = block.getFieldValue('caption');
 
   var template = ' <button class="btn btn-danger navbar-btn">{{ text_caption }}</button>';
@@ -217,7 +260,7 @@ Blockly.JavaScript['button'] = function(block) {
   return rendered;
 };
 
-Blockly.JavaScript['link'] = function(block) {
+MsHtmlGenerator['link'] = function(block) {
   var text_caption = block.getFieldValue('caption');
 
   var template = `<li class="nav-item">
@@ -233,9 +276,9 @@ Blockly.JavaScript['link'] = function(block) {
 
 
 
-Blockly.JavaScript['menu'] = function(block) {
+MsHtmlGenerator['menu'] = function(block) {
   var dropdown_menutype = block.getFieldValue('menutype');
-  var statements_menuitems = Blockly.JavaScript.statementToCode(block, 'menuitems');
+  var statements_menuitems = MsHtmlGenerator.statementToCode(block, 'menuitems');
   // TODO: Assemble JavaScript into code variable.
   
    var template = '<nav class="navbar navbar-inverse">'+
@@ -252,14 +295,14 @@ Blockly.JavaScript['menu'] = function(block) {
   return code;
 };
 
-Blockly.JavaScript['container1'] = function(block) {
-  var statements_center = Blockly.JavaScript.statementToCode(block, 'center');
+MsHtmlGenerator['container1'] = function(block) {
+  var statements_center = MsHtmlGenerator.statementToCode(block, 'center');
   // TODO: Assemble JavaScript into code variable.
   var code = 'container1\n'+statements_center+'\n';
   return code;
 };
 
-Blockly.JavaScript['image'] = function(block) {
+MsHtmlGenerator['image'] = function(block) {
   var dropdown_shape = block.getFieldValue('shape');
   var text_src = block.getFieldValue('src');
   var text_width = block.getFieldValue('width');
@@ -279,40 +322,40 @@ Blockly.JavaScript['image'] = function(block) {
   return rendered;
 };
 
-Blockly.JavaScript['goolemaps'] = function(block) {
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+MsHtmlGenerator['goolemaps'] = function(block) {
+  var value_name = MsHtmlGenerator.valueToCode(block, 'NAME', MsHtmlGenerator.ORDER_ATOMIC);
+  var value_name = MsHtmlGenerator.valueToCode(block, 'NAME', MsHtmlGenerator.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = 'goolemaps\n';
   return code;
 };
 
-Blockly.JavaScript['disqus'] = function(block) {
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+MsHtmlGenerator['disqus'] = function(block) {
+  var value_name = MsHtmlGenerator.valueToCode(block, 'NAME', MsHtmlGenerator.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = 'disqus\n';
   return code;
 };
 
-Blockly.JavaScript['googleanalitics'] = function(block) {
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+MsHtmlGenerator['googleanalitics'] = function(block) {
+  var value_name = MsHtmlGenerator.valueToCode(block, 'NAME', MsHtmlGenerator.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = 'googleanalitics\n';
   return code;
 };
 
-Blockly.JavaScript['slider'] = function(block) {
-  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
+MsHtmlGenerator['slider'] = function(block) {
+  var value_name = MsHtmlGenerator.valueToCode(block, 'NAME', MsHtmlGenerator.ORDER_ATOMIC);
+  var statements_name = MsHtmlGenerator.statementToCode(block, 'NAME');
   // TODO: Assemble JavaScript into code variable.
   var code = 'slider\n'+statements_name+'\n';
   return code;
 };
 
-Blockly.JavaScript['simpletext'] = function(block) {
-  var value_text = Blockly.JavaScript.valueToCode(block, 'text', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_font = Blockly.JavaScript.valueToCode(block, 'font', Blockly.JavaScript.ORDER_ATOMIC);
-  var value_size = Blockly.JavaScript.valueToCode(block, 'size', Blockly.JavaScript.ORDER_ATOMIC);
+MsHtmlGenerator['simpletext'] = function(block) {
+  var value_text = MsHtmlGenerator.valueToCode(block, 'text', MsHtmlGenerator.ORDER_ATOMIC);
+  var value_font = MsHtmlGenerator.valueToCode(block, 'font', MsHtmlGenerator.ORDER_ATOMIC);
+  var value_size = MsHtmlGenerator.valueToCode(block, 'size', MsHtmlGenerator.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
   var code = 'simpletext\n';
   return code;
