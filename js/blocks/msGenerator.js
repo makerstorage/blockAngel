@@ -1,3 +1,42 @@
+Blockly.JavaScript['block_angel_baseframe'] = function(block) {
+  var statements_head = Blockly.JavaScript.statementToCode(block, 'head');
+  var statements_body = Blockly.JavaScript.statementToCode(block, 'body');
+  var code = '<!DOCTYPE HTML>\n<html>\n<head>\n  <meta charset="utf-8">\n'
+    + statements_head
+    + "</head>\n\n<body>\n"
+    + statements_body
+    + "</body>\n</html>\n";
+
+  return code;
+};
+
+
+
+
+
+
+
+
+Blockly.JavaScript['title'] = function(block) {
+  var text_title = block.getFieldValue('title');
+  
+  var code = '<title>' + text_title.trim() + '</title>\n';
+  return code;
+};
+
+
+
+Blockly.JavaScript['block_angel_style'] = function(block) {
+  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '<style>' + statements_name.trim() + '</style>';
+  return code;
+};
+
+
+
+
+
 Blockly.JavaScript['glyphiconpanel'] = function(block) {
 
   var text_icon = block.getFieldValue('Icon');

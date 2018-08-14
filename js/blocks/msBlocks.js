@@ -1,3 +1,55 @@
+Blockly.Blocks['block_angel_baseframe'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("html");
+    this.appendDummyInput()
+        .appendField("head");
+    this.appendStatementInput("head")
+        .setCheck("header");
+    this.appendDummyInput()
+        .appendField("body");
+    this.appendStatementInput("body")
+        .setCheck("html");
+    this.setColour(0);
+ this.setTooltip("");
+ this.setHelpUrl("http://www.w3schools.com/tags/tag_html.asp");
+  }
+};
+
+
+
+Blockly.Blocks['title'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Title:")
+        .appendField(new Blockly.FieldTextInput("New Page Title"), "title");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(0);
+ this.setTooltip("");
+ this.setHelpUrl("http://www.w3schools.com/tags/tag_html.asp");
+  }
+};
+
+
+Blockly.Blocks['block_angel_style'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("style");
+    this.appendStatementInput("NAME")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+ this.setTooltip("");
+ this.setHelpUrl("https://www.w3schools.com/tags/tag_style.asp");
+  }
+};
+
+
+
+
+
 Blockly.Blocks['glyphiconpanel'] = {
   init: function() {
     this.appendDummyInput()

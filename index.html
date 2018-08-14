@@ -105,6 +105,30 @@
 
 <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
   
+  <category name="Base frame" colour="#a55b5b">
+   
+    <block type="block_angel_baseframe">
+    <statement name="head">
+      <block type="title">
+        <field name="title">New Page Title</field>
+        <next>
+          <block type="block_angel_style"></block>
+        </next>
+      </block>
+    </statement>
+  </block>
+    
+    <block type="block_angel_baseframe"></block>
+    
+    <block type="title">
+      <field name="title">New Page Title</field>
+    </block>
+  </category>
+  <category name="Style">
+    <block type="block_angel_style">
+    </block>
+  </category>
+
     <category name="Call to Action">
     <block type="block_angel_call_to_action_1">
       <field name="h1_caption">Angel Blocks</field>
