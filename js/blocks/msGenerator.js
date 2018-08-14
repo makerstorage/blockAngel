@@ -88,11 +88,13 @@ MsHtmlGenerator['block_angel_css_text_align'] = function(block) {
 
 
 MsHtmlGenerator['block_angel_css_color'] = function(block) {
-  var colour_name = block.getFieldValue('NAME');
+  var dropdown_property = block.getFieldValue('property');
+  var colour_color = block.getFieldValue('color');
   // TODO: Assemble JavaScript into code variable.
-  var code = 'color:'+colour_name+';\n';
+  var code = dropdown_property+':'+colour_color+';\n';
   return code;
 };
+
 
 //style son
 

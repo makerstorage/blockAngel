@@ -106,8 +106,8 @@ Blockly.Blocks['block_angel_css_text_align'] = {
 Blockly.Blocks['block_angel_css_color'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("color:")
-        .appendField(new Blockly.FieldColour("#ff0000"), "NAME");
+        .appendField(new Blockly.FieldDropdown([["color","color"], ["background","background"], ["border-color","border-color"], ["caret-color","caret-color"], ["outline-color","outline-color"], ["text-decoration-color","text-decoration-color"]]), "property")
+        .appendField(new Blockly.FieldColour("#ff0000"), "color");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(105);
