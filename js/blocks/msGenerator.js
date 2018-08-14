@@ -24,12 +24,49 @@ Blockly.JavaScript['title'] = function(block) {
   return code;
 };
 
-
+//style
 
 Blockly.JavaScript['block_angel_style'] = function(block) {
   var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
   // TODO: Assemble JavaScript into code variable.
   var code = '<style>' + statements_name.trim() + '</style>';
+  return code;
+};
+
+
+Blockly.JavaScript['block_angel_css_class'] = function(block) {
+  var text_classname = block.getFieldValue('CLASSNAME');
+  var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
+  // TODO: Assemble JavaScript into code variable.
+   var code = text_classname+'{\n' + statements_name.trim() + '\n}';
+  return code;
+};
+
+
+Blockly.JavaScript['block_angel_genericstyle'] = function(block) {
+  var text_property = block.getFieldValue('property');
+  var text_value = block.getFieldValue('value');
+  var code = text_property + ': ' + text_value + ';';
+  return code;
+};
+
+Blockly.JavaScript['block_angel_class'] = function(block) {
+  var text_name = block.getFieldValue('NAME');
+  var value_inputclassname = Blockly.JavaScript.valueToCode(block, 'inputClassName', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = text_name+' '+value_inputclassname;
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+//style son
+
+
+Blockly.JavaScript['block_angel_div_with_css'] = function(block) {
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var statements_content = Blockly.JavaScript.statementToCode(block, 'content');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '<div' + value_name + '>\n' + statements_content + '</div>\n';
   return code;
 };
 

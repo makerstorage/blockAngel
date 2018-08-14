@@ -31,6 +31,7 @@ Blockly.Blocks['title'] = {
   }
 };
 
+// style
 
 Blockly.Blocks['block_angel_style'] = {
   init: function() {
@@ -46,6 +47,66 @@ Blockly.Blocks['block_angel_style'] = {
   }
 };
 
+
+Blockly.Blocks['block_angel_css_class'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("css")
+        .appendField(new Blockly.FieldTextInput("className"), "CLASSNAME");
+    this.appendStatementInput("NAME")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(105);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['block_angel_genericstyle'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput("property"), "property")
+        .appendField(":")
+        .appendField(new Blockly.FieldTextInput("value"), "value");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(105);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+
+Blockly.Blocks['block_angel_class'] = {
+  init: function() {
+    this.appendValueInput("inputClassName")
+        .setCheck(null)
+        .appendField(new Blockly.FieldTextInput("className"), "NAME");
+    this.setOutput(true, null);
+    this.setColour(105);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+
+//style son
+
+Blockly.Blocks['block_angel_div_with_css'] = {
+  init: function() {
+    this.appendValueInput("NAME")
+        .setCheck("attribute")
+        .appendField("division");
+    this.appendStatementInput("content")
+        .setCheck("html");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(270);
+ this.setTooltip("");
+ this.setHelpUrl("http://www.w3schools.com/tags/tag_html.asp");
+  }
+};
 
 
 
