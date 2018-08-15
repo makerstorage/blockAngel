@@ -227,19 +227,16 @@ Blockly.Blocks['block_angel_anchor'] = {
   init: function() {
     this.appendDummyInput()
         .appendField("a href")
-        .appendField(new Blockly.FieldTextInput("http://makerstorage.com"), "href");
-    this.appendDummyInput()
-        .setAlign(Blockly.ALIGN_CENTRE)
-        .appendField(new Blockly.FieldTextInput("MakerStorage"), "caption")
-        .appendField("target")
-        .appendField(new Blockly.FieldDropdown([["_blank","_blank"], ["_self","_self"], ["_parent","_parent"], ["_top","_top"]]), "target");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(330);
+        .appendField(new Blockly.FieldTextInput("target"), "TARGET");
+    this.appendStatementInput("content");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(315);
  this.setTooltip("");
- this.setHelpUrl("");
+ this.setHelpUrl("http://www.w3schools.com/tags/tag_html.asp");
   }
 };
+
 
 
 Blockly.Blocks['glyphiconpanel'] = {

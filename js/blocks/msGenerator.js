@@ -159,12 +159,14 @@ MsHtmlGenerator['block_angel_h1'] = function(block) {
 
 
 MsHtmlGenerator['block_angel_anchor'] = function(block) {
-  var text_href = block.getFieldValue('href');
-  var text_caption = block.getFieldValue('caption');
-  var dropdown_target = block.getFieldValue('target');
-  var code = '<a href="' + text_href+'" target="' + dropdown_target+ '">'+text_caption+'</a>\n';
+  var text_target = block.getFieldValue('TARGET');
+  var statements_content = MsHtmlGenerator.statementToCode(block, 'content');
+  var code = '<a href="' + text_target+'" target="_blank">'+statements_content+'</a>\n';
   return code;
 };
+
+
+
 
 
 MsHtmlGenerator['glyphiconpanel'] = function(block) {
