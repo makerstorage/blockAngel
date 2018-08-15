@@ -133,10 +133,17 @@ Blockly.Blocks['block_angel_css_color'] = {
 
 Blockly.Blocks['block_angel_paragraph'] = {
   init: function() {
-    this.appendValueInput("NAME")
-        .setCheck(null)
-        .appendField("paragraph:")
-        .appendField(new Blockly.FieldTextInput("This is Sample Text"), "text");
+    this.appendValueInput("CLASS_NAME")
+        .setCheck("id")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("p")
+        .appendField("#");
+    this.appendValueInput("ID_NAME")
+        .setCheck("class")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(".");
+    this.appendStatementInput("NAME")
+        .setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
@@ -145,17 +152,18 @@ Blockly.Blocks['block_angel_paragraph'] = {
   }
 };
 
+
 Blockly.Blocks['block_angel_div_with_css'] = {
   init: function() {
-    this.appendValueInput("CLASS_NAME")
-        .setCheck("class")
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("div")
-        .appendField(".");
     this.appendValueInput("ID_NAME")
         .setCheck("id")
         .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("div")
         .appendField("#");
+    this.appendValueInput("CLASS_NAME")
+        .setCheck("class")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(".");
     this.appendStatementInput("content")
         .setCheck("html");
     this.setPreviousStatement(true);
@@ -166,6 +174,17 @@ Blockly.Blocks['block_angel_div_with_css'] = {
   }
 };
 
+Blockly.Blocks['block_angel_text'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldTextInput("Sample Text"), "NAME");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(180);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
 
 
 

@@ -114,14 +114,14 @@ MsHtmlGenerator['block_angel_css_color'] = function(block) {
 //style son
 
 
+
 MsHtmlGenerator['block_angel_paragraph'] = function(block) {
-  var text_text = block.getFieldValue('text');
-  var value_name = MsHtmlGenerator.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
-  // TODO: Assemble JavaScript into code variable.
-  var code = '<p' + value_name + '>' + text_text + '</p>\n';
+  var value_id_name = MsHtmlGenerator.valueToCode(block, 'ID_NAME', MsHtmlGenerator.ORDER_ATOMIC);
+  var value_class_name = MsHtmlGenerator.valueToCode(block, 'CLASS_NAME', MsHtmlGenerator.ORDER_ATOMIC);
+  var statements_name = MsHtmlGenerator.statementToCode(block, 'NAME');
+  var code = '<p' + value_id_name + value_class_name+'>' + statements_name + '</p>\n';
   return code;
 };
-
 
 
 MsHtmlGenerator['block_angel_div_with_css'] = function(block) {
@@ -132,6 +132,11 @@ MsHtmlGenerator['block_angel_div_with_css'] = function(block) {
   return code;
 };
 
+MsHtmlGenerator['block_angel_text'] = function(block) {
+  var text_name = block.getFieldValue('NAME');
+  var code = text_name;
+  return code;
+};
 
 
 MsHtmlGenerator['glyphiconpanel'] = function(block) {
