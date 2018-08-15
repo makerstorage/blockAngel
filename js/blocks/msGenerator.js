@@ -73,11 +73,26 @@ MsHtmlGenerator['block_angel_class'] = function(block) {
   var text_name = block.getFieldValue('NAME');
   var value_inputclassname = MsHtmlGenerator.valueToCode(block, 'inputClassName', MsHtmlGenerator.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = text_name+' '+value_inputclassname;
-  // TODO: Change ORDER_NONE to the correct strength.
+  var prefix = ' class="';
+  var midfix = '';
+  var endfix = '"';
+  var parent = block.getParent();
+  var child = block.getChildren()[0];
+  if ((parent != null) && (parent.type=='block_angel_class')) {prefix =' ';midfix = '';endfix = '';};
+  //if ((child != null) && (child.type == 'block_angel_css_id')){prefix =' class="';midfix = '"';endfix = '';};
+  var code = prefix+text_name+midfix+value_inputclassname+endfix;
+  
   return [code, MsHtmlGenerator.ORDER_NONE];
 };
 
+
+MsHtmlGenerator['block_angel_css_id'] = function(block) {
+  var text_id_name = block.getFieldValue('ID_NAME');
+  // TODO: Assemble JavaScript into code variable.
+  var code = ' id="'+text_id_name+'"';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, MsHtmlGenerator.ORDER_NONE];
+};
 
 MsHtmlGenerator['block_angel_css_text_align'] = function(block) {
   var dropdown_name = block.getFieldValue('NAME');
@@ -103,19 +118,19 @@ MsHtmlGenerator['block_angel_paragraph'] = function(block) {
   var text_text = block.getFieldValue('text');
   var value_name = MsHtmlGenerator.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = '<p class="' + value_name + '">' + text_text + '</p>\n';
+  var code = '<p' + value_name + '>' + text_text + '</p>\n';
   return code;
 };
+
+
 
 MsHtmlGenerator['block_angel_div_with_css'] = function(block) {
-  var value_name = MsHtmlGenerator.valueToCode(block, 'NAME', MsHtmlGenerator.ORDER_ATOMIC);
+  var value_class_name = MsHtmlGenerator.valueToCode(block, 'CLASS_NAME', MsHtmlGenerator.ORDER_ATOMIC);
+  var value_id_name = MsHtmlGenerator.valueToCode(block, 'ID_NAME', MsHtmlGenerator.ORDER_ATOMIC);
   var statements_content = MsHtmlGenerator.statementToCode(block, 'content');
-  // TODO: Assemble JavaScript into code variable.
-  var code = '<div class="' + value_name + '">\n' + statements_content + '</div>\n';
+  var code = '<div' + value_class_name +value_id_name+ '>\n' + statements_content + '</div>\n';
   return code;
 };
-
-
 
 
 

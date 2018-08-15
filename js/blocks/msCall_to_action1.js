@@ -24,7 +24,7 @@ Blockly.Blocks['block_angel_call_to_action_1'] = {
 
 
 
-Blockly.JavaScript['block_angel_call_to_action_1'] = function(block) {
+MsHtmlGenerator['block_angel_call_to_action_1'] = function(block) {
   var h1_caption = block.getFieldValue('h1_caption');
   var paragraph_content = block.getFieldValue('paragraph_content');
   var button_caption = block.getFieldValue('button_caption');

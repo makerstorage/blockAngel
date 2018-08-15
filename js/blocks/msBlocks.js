@@ -81,14 +81,27 @@ Blockly.Blocks['block_angel_genericstyle'] = {
 Blockly.Blocks['block_angel_class'] = {
   init: function() {
     this.appendValueInput("inputClassName")
-        .setCheck(null)
-        .appendField(new Blockly.FieldTextInput("className"), "NAME");
-    this.setOutput(true, null);
+        .setCheck("class")
+        .appendField(new Blockly.FieldTextInput("ClassName"), "NAME");
+    this.setOutput(true, "class");
     this.setColour(105);
  this.setTooltip("");
  this.setHelpUrl("");
   }
 };
+
+Blockly.Blocks['block_angel_css_id'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("#")
+        .appendField(new Blockly.FieldTextInput("idName"), "ID_NAME");
+    this.setOutput(true, "id");
+    this.setColour(105);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
 
 Blockly.Blocks['block_angel_css_text_align'] = {
   init: function() {
@@ -134,9 +147,15 @@ Blockly.Blocks['block_angel_paragraph'] = {
 
 Blockly.Blocks['block_angel_div_with_css'] = {
   init: function() {
-    this.appendValueInput("NAME")
-        .setCheck("attribute")
-        .appendField("division");
+    this.appendValueInput("CLASS_NAME")
+        .setCheck("class")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("div")
+        .appendField(".");
+    this.appendValueInput("ID_NAME")
+        .setCheck("id")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("#");
     this.appendStatementInput("content")
         .setCheck("html");
     this.setPreviousStatement(true);
