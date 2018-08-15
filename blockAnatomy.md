@@ -38,9 +38,8 @@ Decide the parts that you will give the flexibility to be changed from the UI. G
 
 ### 3- Change the text you want to make parametric with the var name like this.
 
-&lt;h1&gt;Angel Blocks&lt;/h1&gt; will be &lt;h1&gt;${h1_caption}&lt;/h1&gt;
 
-and the overall code will be:
+The HTML code will be:
 
 ```html
         
@@ -63,7 +62,7 @@ When you open the block factory you will start with a blank UI like the picture 
 
 Start with giving the block name. Please read the naming Convention section of this document before.
 Let's give this block the name "block-angel-image". Write it at the top.
-From the inputs section drag 3 dummy input and put it in the input section. Then from the fields section grap the fields like the picture below. 
+From the inputs section drag 3 dummy inputs and put it in the input section. Then from the fields section grap the fields like the picture below. 
 
 ![Picture2](Picture2.png)
 
