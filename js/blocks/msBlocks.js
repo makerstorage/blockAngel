@@ -238,6 +238,29 @@ Blockly.Blocks['block_angel_anchor'] = {
 };
 
 
+Blockly.Blocks['block_angel_image'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("image")
+        .appendField(new Blockly.FieldTextInput("URL"), "IMAGE")
+        .appendField("or")
+        .appendField(new Blockly.FieldTextInput("alt text"), "ALT");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("width")
+        .appendField(new Blockly.FieldTextInput(""), "width");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("height")
+        .appendField(new Blockly.FieldTextInput(""), "height");
+    this.setPreviousStatement(true);
+    this.setNextStatement(true);
+    this.setColour(270);
+ this.setTooltip("");
+ this.setHelpUrl("http://www.w3schools.com/tags/tag_html.asp");
+  }
+};
+
 
 Blockly.Blocks['glyphiconpanel'] = {
   init: function() {
@@ -399,29 +422,7 @@ Blockly.Blocks['container1'] = {
   }
 };
 
-Blockly.Blocks['image'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("image")
-        .appendField(new Blockly.FieldDropdown([["rounded","img-rounded"], ["circle","img-circle"], ["thumbnail","img-thumbnail"]]), "shape")
-        .appendField("path")
-        .appendField(new Blockly.FieldTextInput("img/"), "src");
-    this.appendDummyInput()
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("width")
-        .appendField(new Blockly.FieldTextInput(""), "width");
-    this.appendDummyInput()
-        .setAlign(Blockly.ALIGN_RIGHT)
-        .appendField("height")
-        .appendField(new Blockly.FieldTextInput(""), "height");
-    this.setInputsInline(true);
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(230);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
+
 
 
 Blockly.Blocks['goolemaps'] = {

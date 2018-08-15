@@ -166,7 +166,15 @@ MsHtmlGenerator['block_angel_anchor'] = function(block) {
 };
 
 
-
+MsHtmlGenerator['block_angel_image'] = function(block) {
+  var text_image = block.getFieldValue('IMAGE');
+  var text_alt = block.getFieldValue('ALT');
+  var text_width = block.getFieldValue('width');
+  var text_height = block.getFieldValue('height');
+  // TODO: Assemble JavaScript into code variable.
+  var code = `<img src="${text_image}" alt="${text_alt}" width="${text_width}" height="${text_height}">`;
+  return code;
+};
 
 
 MsHtmlGenerator['glyphiconpanel'] = function(block) {
@@ -341,25 +349,12 @@ MsHtmlGenerator['container1'] = function(block) {
   return code;
 };
 
-MsHtmlGenerator['image'] = function(block) {
-  var dropdown_shape = block.getFieldValue('shape');
-  var text_src = block.getFieldValue('src');
-  var text_width = block.getFieldValue('width');
-  var text_height = block.getFieldValue('height');
 
-  // TODO: Assemble JavaScript into code variable.
-  var template = '<img src="{{ text_src }}" class="{{dropdown_shape}}" width="{{text_width}}" height="{{text_height}}">';
-                  
-  var myJson = '{"text_src": "'+text_src+'",'+
-               '"dropdown_shape": "'+dropdown_shape+'",'+
-               '"text_width": "'+text_width+'",'+
-               '"text_height": "'+text_height+'"}';
 
-  Mustache.parse(template);   // optional, speeds up future uses
-  var rendered = Mustache.render(template, JSON.parse(myJson));     
 
-  return rendered;
-};
+
+
+
 
 MsHtmlGenerator['goolemaps'] = function(block) {
   var value_name = MsHtmlGenerator.valueToCode(block, 'NAME', MsHtmlGenerator.ORDER_ATOMIC);
