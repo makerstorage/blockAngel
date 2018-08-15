@@ -177,7 +177,21 @@ Blockly.Blocks['block_angel_div_with_css'] = {
 Blockly.Blocks['block_angel_text'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField(new Blockly.FieldTextInput("Sample Text"), "NAME");
+        .appendField(new Blockly.FieldTextInput("Simple Text"), "NAME");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(180);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+Blockly.Blocks['block_angel_h1'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Heading")
+        .appendField(new Blockly.FieldDropdown([["h1","h1"], ["h2","h2"], ["h3","h3"], ["h4","h4"], ["h5","h5"], ["h6","h6"]]), "HEADING")
+        .appendField(new Blockly.FieldTextInput("Sample Heading Text"), "TEXT_NAME");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(180);

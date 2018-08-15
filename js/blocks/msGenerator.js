@@ -138,6 +138,14 @@ MsHtmlGenerator['block_angel_text'] = function(block) {
   return code;
 };
 
+MsHtmlGenerator['block_angel_h1'] = function(block) {
+  var dropdown_heading = block.getFieldValue('HEADING');
+  var text_text_name = block.getFieldValue('TEXT_NAME');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '<' + dropdown_heading+'>' + text_text_name+ '</'+dropdown_heading+'>\n';
+  return code;
+};
+
 
 MsHtmlGenerator['glyphiconpanel'] = function(block) {
 
