@@ -132,9 +132,20 @@ MsHtmlGenerator['block_angel_div_with_css'] = function(block) {
   return code;
 };
 
+
+MsHtmlGenerator['block_angel_span_with_css'] = function(block) {
+  var value_id_name = MsHtmlGenerator.valueToCode(block, 'ID_NAME', MsHtmlGenerator.ORDER_ATOMIC);
+  var value_class_name = MsHtmlGenerator.valueToCode(block, 'CLASS_NAME', MsHtmlGenerator.ORDER_ATOMIC);
+  var statements_content = MsHtmlGenerator.statementToCode(block, 'content');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '<span' + value_class_name +value_id_name+ '>\n' + statements_content + '</span>\n';
+  return code;
+};
+
+
 MsHtmlGenerator['block_angel_text'] = function(block) {
   var text_name = block.getFieldValue('NAME');
-  var code = text_name;
+  var code = text_name+ '\n';;
   return code;
 };
 
@@ -143,6 +154,15 @@ MsHtmlGenerator['block_angel_h1'] = function(block) {
   var text_text_name = block.getFieldValue('TEXT_NAME');
   // TODO: Assemble JavaScript into code variable.
   var code = '<' + dropdown_heading+'>' + text_text_name+ '</'+dropdown_heading+'>\n';
+  return code;
+};
+
+
+MsHtmlGenerator['block_angel_anchor'] = function(block) {
+  var text_href = block.getFieldValue('href');
+  var text_caption = block.getFieldValue('caption');
+  var dropdown_target = block.getFieldValue('target');
+  var code = '<a href="' + text_href+'" target="' + dropdown_target+ '">'+text_caption+'</a>\n';
   return code;
 };
 
@@ -290,19 +310,6 @@ MsHtmlGenerator['button'] = function(block) {
   return rendered;
 };
 
-MsHtmlGenerator['link'] = function(block) {
-  var text_caption = block.getFieldValue('caption');
-
-  var template = `<li class="nav-item">
-                  <a class="nav-link" href="{{ text_caption }}">{{ text_caption }}</a>
-                  </li>`;
-  var myJson = '{"text_caption": "'+text_caption+'"}';
-
-  Mustache.parse(template);   // optional, speeds up future uses
-  var rendered = Mustache.render(template, JSON.parse(myJson));     
-
-  return rendered;
-};
 
 
 

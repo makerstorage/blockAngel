@@ -174,6 +174,28 @@ Blockly.Blocks['block_angel_div_with_css'] = {
   }
 };
 
+
+Blockly.Blocks['block_angel_span_with_css'] = {
+  init: function() {
+    this.appendValueInput("ID_NAME")
+        .setCheck("id")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField("span")
+        .appendField("#");
+    this.appendValueInput("CLASS_NAME")
+        .setCheck("class")
+        .setAlign(Blockly.ALIGN_RIGHT)
+        .appendField(".");
+    this.appendStatementInput("content")
+        .setCheck("html");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
 Blockly.Blocks['block_angel_text'] = {
   init: function() {
     this.appendDummyInput()
@@ -200,6 +222,24 @@ Blockly.Blocks['block_angel_h1'] = {
   }
 };
 
+
+Blockly.Blocks['block_angel_anchor'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("a href")
+        .appendField(new Blockly.FieldTextInput("http://makerstorage.com"), "href");
+    this.appendDummyInput()
+        .setAlign(Blockly.ALIGN_CENTRE)
+        .appendField(new Blockly.FieldTextInput("MakerStorage"), "caption")
+        .appendField("target")
+        .appendField(new Blockly.FieldDropdown([["_blank","_blank"], ["_self","_self"], ["_parent","_parent"], ["_top","_top"]]), "target");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(330);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
 
 
 Blockly.Blocks['glyphiconpanel'] = {
@@ -330,18 +370,7 @@ Blockly.Blocks['button'] = {
   }
 };
 
-Blockly.Blocks['link'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Link")
-        .appendField(new Blockly.FieldTextInput("Home"), "caption");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(330);
- this.setTooltip("");
- this.setHelpUrl("");
-  }
-};
+
 
 Blockly.Blocks['menu'] = {
   init: function() {
