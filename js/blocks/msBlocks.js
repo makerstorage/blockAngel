@@ -146,7 +146,7 @@ Blockly.Blocks['block_angel_paragraph'] = {
         .setCheck(null);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(180);
  this.setTooltip("");
  this.setHelpUrl("");
   }
@@ -168,7 +168,7 @@ Blockly.Blocks['block_angel_div_with_css'] = {
         .setCheck("html");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setColour(270);
+    this.setColour(180);
  this.setTooltip("");
  this.setHelpUrl("http://www.w3schools.com/tags/tag_html.asp");
   }
@@ -190,7 +190,7 @@ Blockly.Blocks['block_angel_span_with_css'] = {
         .setCheck("html");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(230);
+    this.setColour(180);
  this.setTooltip("");
  this.setHelpUrl("");
   }
@@ -231,7 +231,7 @@ Blockly.Blocks['block_angel_anchor'] = {
     this.appendStatementInput("content");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setColour(315);
+    this.setColour(180);
  this.setTooltip("");
  this.setHelpUrl("http://www.w3schools.com/tags/tag_html.asp");
   }
@@ -255,7 +255,7 @@ Blockly.Blocks['block_angel_image'] = {
         .appendField(new Blockly.FieldTextInput(""), "height");
     this.setPreviousStatement(true);
     this.setNextStatement(true);
-    this.setColour(270);
+    this.setColour(180);
  this.setTooltip("");
  this.setHelpUrl("http://www.w3schools.com/tags/tag_html.asp");
   }
@@ -279,7 +279,7 @@ Blockly.Blocks['glyphiconpanel'] = {
         .appendField(new Blockly.FieldTextInput("Lorem ipsum dolor sit amet.."), "SubText");
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(120);
+    this.setColour(230);
  this.setTooltip("");
  this.setHelpUrl("");
   }

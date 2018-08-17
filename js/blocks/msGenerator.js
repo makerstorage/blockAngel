@@ -11,12 +11,6 @@ MsHtmlGenerator.scrub_ = function(block, code) {
 };
 
 
-
-
-
-
-
-
 MsHtmlGenerator['block_angel_baseframe'] = function(block) {
   var statements_head = MsHtmlGenerator.statementToCode(block, 'head');
   var statements_body = MsHtmlGenerator.statementToCode(block, 'body');
@@ -28,12 +22,6 @@ MsHtmlGenerator['block_angel_baseframe'] = function(block) {
 
   return code;
 };
-
-
-
-
-
-
 
 
 MsHtmlGenerator['title'] = function(block) {
@@ -184,78 +172,35 @@ MsHtmlGenerator['glyphiconpanel'] = function(block) {
   var text_caption = block.getFieldValue('Caption');
   var text_subtext = block.getFieldValue('SubText');
 
-  var template =`
+  var code =`
   <div style="text-align: center;margin: 25px 0;" >
-   <span class="glyphicon {{ text_icon }} logo-small" style="color: {{ colour_color }}; font-size: 100px;">              </span>
-   <h4>{{ text_caption }}</h4>
-   <p>{{ text_subtext }}</p>
-</div>
-      `;
+   <span class="glyphicon ${ text_icon } logo-small" style="color: ${ colour_color }; font-size: 100px;">              </span>
+   <h4>${ text_caption }</h4>
+   <p>${ text_subtext }</p>
+</div>`;
 
-  var myJson = '{"text_icon": "'+text_icon+'",'+
-               '"colour_color": "'+colour_color+'",'+
-               '"text_caption": "'+text_caption+'",'+
-               '"text_subtext": "'+text_subtext+'"}';
 
-  Mustache.parse(template);   // optional, speeds up future uses
-  var rendered = Mustache.render(template, JSON.parse(myJson));     
-
-  return rendered;
+  return code;
 };
 
 
 MsHtmlGenerator['video'] = function(block) {
   var text_src = block.getFieldValue('src');
   // TODO: Assemble JavaScript into code variable.
-   var template =`
+   var code =`
   <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="{{text_src}}"></iframe>
+    <iframe class="embed-responsive-item" src="${text_src}"></iframe>
   </div>`;
-
-  var myJson = '{"text_src": "'+text_src+'"}';
-
-  Mustache.parse(template);   // optional, speeds up future uses
-  var rendered = Mustache.render(template, JSON.parse(myJson));          
-
-  //alert (rendered);
-  return rendered;
+  return code;
 };
-
-
-
-
-
-
-
-
-
 
 
 MsHtmlGenerator['panel1'] = function(block) {
   var text_caption = block.getFieldValue('caption');
   var text_subtext = block.getFieldValue('subtext');
-  // TODO: Assemble JavaScript into code variable.
 
-  /*var template = '<div class="container">'+
-    '<div class="jumbotron">'+
-      '<h1>{{ text_caption }}</h1>'+ 
-      '<p>{{ text_subtext }}</p>'+ 
-    '</div>'+
-  '</div>';*/
-
-   var template = '<div class="jumbotron">'+
-      '<h1>{{ text_caption }}</h1>'+ 
-      '<p>{{ text_subtext }}</p>'+ 
-    '</div>';
-
-  var myJson = '{"text_caption": "'+text_caption+'",'+
-            '"text_subtext": "'+text_subtext+'"}';
-
-  Mustache.parse(template);   // optional, speeds up future uses
-  var rendered = Mustache.render(template, JSON.parse(myJson));          
-
-  //alert (rendered);
-  return rendered;
+  var code = `<div class="jumbotron"><h1>${ text_caption }</h1><p>${ text_subtext }</p></div>`;
+  return code;
 };
 
 
