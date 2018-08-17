@@ -31,6 +31,9 @@ MsHtmlGenerator['title'] = function(block) {
   return code;
 };
 
+
+
+
 //style
 
 MsHtmlGenerator['block_angel_style'] = function(block) {
@@ -98,6 +101,12 @@ MsHtmlGenerator['block_angel_css_color'] = function(block) {
   return code;
 };
 
+
+MsHtmlGenerator['block_angel_css_fontsize'] = function(block) {
+  var text_fontsize = block.getFieldValue('FONTSIZE');
+  var code = `font-size : ${text_fontsize}\n`;
+  return code;
+};
 
 //style son
 

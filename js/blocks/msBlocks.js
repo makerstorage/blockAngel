@@ -129,6 +129,19 @@ Blockly.Blocks['block_angel_css_color'] = {
   }
 };
 
+Blockly.Blocks['block_angel_css_fontsize'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("font-size:")
+        .appendField(new Blockly.FieldTextInput("24px"), "FONTSIZE");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(105);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
 //style son
 
 Blockly.Blocks['block_angel_paragraph'] = {
